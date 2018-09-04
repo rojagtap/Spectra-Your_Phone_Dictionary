@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!--suppress XmlDuplicatedId -->
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>{% block title %}Spectra{% endblock %}</title>
+    {% load staticfiles %}
+    <link rel="shortcut icon" type="image/png" href="{%  static 'favicon.ico' %}"/>
+    <link rel="stylesheet" href="{% static 'spectra/vendor/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'spectra/vendor/font-awesome/css/font-awesome.min.css' %}"/>
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'spectra/vendor/simple-line-icons/css/simple-line-icons.css' %}"/>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=droid-sans:300,400,700,300italic,400italic,700italic">
+    <link rel="stylesheet" type="text/css" href="{% static 'spectra/css/landing-page.min.css' %}"/>
+    <script src="{% static 'spectra/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'spectra/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <link href="{% static 'spectra/login_bootstrap3/login-register.css' %}" rel="stylesheet"/>
+    <script src="{% static 'spectra/login_bootstrap3/js/login-register.js' %}" type="text/javascript"></script>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'spectra/styles.css' %}">
+    <!--<link href="{% static 'spectra/login_bootstrap3/css/bootstrap.css' %}" rel="stylesheet" />
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+	<script src="{% static 'spectra/login_jquery/jquery-1.10.2.js' %}" type="text/javascript"></script>
+	<script src="{% static 'spectra/login_bootstrap3/js/bootstrap.js' %}" type="text/javascript"></script>-->
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-dark bg-dark static-top">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'spectra:index' %}"><strong>Spectra</strong></a>
+        <a class="btn btn-primary text-dark" href="{% url 'spectra:compare_2' %}">
+            <span aria-hidden="true"><img src="{%  static 'compare.png' %}"></span>  Compare
+        </a>
+        {% if user.is_authenticated %}
+            <a class="btn btn-primary text-dark" href="{% url 'spectra:logout_user' %}">
+                <span aria-hidden="true"><img src="{%  static 'icon.png' %}"></span> Logout
+            </a>
+        {% else %}
+             <a class="btn btn-primary text-dark" href="{% url 'spectra:login_user' %}">
+                <span aria-hidden="true"><img src="{%  static 'sign-in.png' %}"></span>  Sign In
+            </a>
+        {% endif %}
+    </div>
+</nav>
+
+{% block body %}
+{% endblock %}
+
+<!-- Footer -->
+<footer class="footer bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+                <ul class="list-inline mb-2">
+                    <li class="list-inline-item">
+                        <a href="{% url 'spectra:about' %}">About</a>
+                    </li>
+                    <li class="list-inline-item">&sdot;</li>
+                    <li class="list-inline-item">
+                        <a href="{% url 'spectra:contact' %}">Contact</a>
+                    </li>
+                    <li class="list-inline-item">&sdot;</li>
+                    <li class="list-inline-item">
+                        <a href="{% url 'spectra:terms' %}">Terms of Use</a>
+                    </li>
+                    <li class="list-inline-item">&sdot;</li>
+                    <li class="list-inline-item">
+                        <a href="{% url 'spectra:privacy' %}">Privacy Policy</a>
+                    </li>
+                </ul>
+                <p class="text-muted small mb-4 mb-lg-0">&copy; AxiomCorp 2018. All Rights Reserved.</p>
+            </div>
+            <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item mr-3">
+                        <a href="https://www.facebook.com/">
+                            <i class="fa fa-facebook fa-2x fa-fw"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item mr-3">
+                        <a href="https://www.twitter.com">
+                            <i class="fa fa-twitter fa-2x fa-fw"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://www.instagram.com">
+                            <i class="fa fa-instagram fa-2x fa-fw"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+
+
+</html>

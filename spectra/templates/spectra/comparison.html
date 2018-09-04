@@ -1,0 +1,58 @@
+{% extends 'spectra/base.html' %}
+{% block title %}Compare{% endblock %}
+
+{% block body %}
+
+<br>
+
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-lg-6" style="">
+            <ul class="list-group" style="font-weight: bold;">
+                <li class="list-group-item bg-dark text-light">{{ phone1.phone_name }}</li>
+                <li class="list-group-item text-center"><img src=" {{ phone1.phone_picture }} " height="50%"
+                width="50%" alt="{{ phone1.phone_name }}"></li>
+                <li class="list-group-item">Release Date : {{ phone1.release_date }}</li>
+                <li class="list-group-item">Screen Resolution : {{phone1.dimensions}}</li>
+                <li class="list-group-item">Primary Camera : {{ phone1.primary_camera }}</li>
+                <li class="list-group-item">Secondary Camera : {{ phone1.secondary_camera }}</li>
+                <li class="list-group-item">RAM : {{ phone1.ram }}</li>
+                <li class="list-group-item">Storage : {{ phone1.storage }}</li>
+                <li class="list-group-item">OS : {{ phone1.os }}</li>
+                <li class="list-group-item">Processor : {{ phone1.processor }}</li>
+                <li class="list-group-item">Battery : {{ phone1.battery }}</li>
+                {% if phone1.water_resistant %}
+                    <li class="list-group-item">Water/Dust Resistant : Yes</li>
+                {% else %}
+                    <li class="list-group-item">Water/Dust Resistant : No</li>
+                {% endif %}
+            </ul>
+        </div>
+        <div class="col-lg-6" style="">
+            <ul class="list-group" style="font-weight: bold;">
+                <li class="list-group-item bg-dark text-light">{{ phone2.phone_name }}</li>
+                <li class="list-group-item text-center"><img src=" {{ phone2.phone_picture }} " height="50%"
+                width="50%" alt="{{ phone2.phone_name }}"></li>
+                <li class="list-group-item">Release Date : {{ phone2.release_date }}</li>
+                <li class="list-group-item">Screen Resolution : {{phone2.dimensions}}</li>
+                <li class="list-group-item">Primary Camera : {{ phone2.primary_camera }}</li>
+                <li class="list-group-item">Secondary Camera : {{ phone2.secondary_camera }}</li>
+                <li class="list-group-item">RAM : {{ phone2.ram }}</li>
+                <li class="list-group-item">Storage : {{ phone2.storage }}</li>
+                <li class="list-group-item">OS : {{ phone2.os }}</li>
+                <li class="list-group-item">Processor : {{ phone2.processor }}</li>
+                <li class="list-group-item">Battery : {{ phone2.battery }}</li>
+                {% if phone2.water_resistant %}
+                    <li class="list-group-item">Water/Dust Resistant : Yes</li>
+                {% else %}
+                    <li class="list-group-item">Water/Dust Resistant : No</li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+<br>
+{% endblock %}

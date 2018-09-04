@@ -1,0 +1,51 @@
+{% extends 'spectra/base.html' %}
+{% block title %}Compare{% endblock %}
+
+{% block body %}
+
+<header class="masthead text-white text-center">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-9 mx-auto">
+                <h1 class="mb-5">Confused between two? No worries, we've got your back!</h1>
+            </div>
+            <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+                <center>
+                    <form role="search" method="get" action="{% url 'spectra:comparison' %}">
+                        <div class="form-row">
+                            <div class="col-20 col-md-12 mb-0 mb-md-0">
+
+                                {% if phone is not None %}
+                                <input type="search" class="form-control form-control-lg" name="p"
+                                       value="{{ phone.phone_name }}"
+                                       placeholder=" Enter a smartphone name" required>
+                                {% else %}
+                                <input type="search" class="form-control form-control-lg" name="p"
+                                       placeholder=" Enter a smartphone name" required>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <br>
+                        <center>
+                        <div class="form-row">
+                            <div class="col-20 col-md-12 mb-0 mb-md-0">
+                                <input type="text" class="form-control form-control-lg" name="q"
+                                       placeholder=" Enter a smartphone name" required>
+                            </div>
+                        </div>
+                        </center>
+                        <br>
+                        <br>
+                        <div class="col-12 col-md-3" style="text-align:center;">
+                            <button type="submit" class="btn btn-block btn-lg btn-primary">Search</button>
+                        </div>
+                    </form>
+                </center>
+            </div>
+        </div>
+    </div>
+</header>
+
+{% endblock %}

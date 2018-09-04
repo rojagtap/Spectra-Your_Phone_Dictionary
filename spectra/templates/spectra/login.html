@@ -1,0 +1,55 @@
+{% extends 'spectra/base.html' %}
+{% block title %}Log In{% endblock %}
+
+{% block body %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+<br>
+<div class="container vertical-align">
+
+    <div class="col-lg-6 col-lg-offset-3">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h3>Log In</h3>
+                <br>
+                {% if error_message %}
+                <p><strong>{{ error_message }}</strong></p>
+                {% endif %}
+                <form class="form-horizontal" role="form" action="{% url 'spectra:login_user'%}" method="post"
+                      enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="id_username">
+                            Username:
+                        </label>
+                        <div class="col-sm-10">
+                            <input id="id_username" maxlength="30" name="username" type="text">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="id_password">
+                            Password:
+                        </label>
+                        <div class="col-sm-10">
+                            <input id="id_password" maxlength="30" name="password" type="password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="panel-footer">
+                Don't have an account? <a href="{% url 'spectra:register' %}">Click here</a> to register.
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
+

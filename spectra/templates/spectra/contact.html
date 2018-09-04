@@ -1,0 +1,49 @@
+{% extends 'spectra/base.html' %}
+{% block title %}Contact Us{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+
+    <div class="col-sm-6 col-sm-offset-3 col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <br>
+                <h2>Contact via E-mail</h2>
+                {% if user.is_authenticated %}
+                <h5><span>Signed In as {{ user.username }}, </span><a
+                        href="{% url 'spectra:logout_user' %}">Logout</a></h5>
+                {% endif %}
+                <form class="form-horizontal" role="form" action="#" method="post"
+                      enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <br>
+
+                    <label for="p">Name</label>
+                    <input type="text" class="form-control form-control-md" id="p" name="p"
+                           placeholder="Name" required>
+                    <br>
+                    <label for="q">Email</label>
+                    <input type="email" class="form-control form-control-md" id="q" name="q"
+                           placeholder="Email" required>
+                    <br>
+                    <label for="s">Your message</label>
+                    <textarea class="form-control form-control-md" id="s" name="s"
+                              placeholder="Your Message" required></textarea>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <div class="col-sm-offset-1 col-sm-10">
+                                <br>
+                                <button type="submit" class="btn btn-success">
+                                    <span>Submit</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- </div>-->
+</div>
+{% endblock %}
